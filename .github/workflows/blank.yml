@@ -34,8 +34,8 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Login and Execute Kubectl
         run: |
-          az login --service-principal --username "${USERNAME}" --password "${PASSWORD}" --tenant "${TENANT}"
-          az account set --subscription "${SUBSCRIPTION}"
+          az login --service-principal --username ${{USERNAME}} --password ${{PASSWORD}} --tenant ${{TENANT}}
+          az account set --subscription ${{SUBSCRIPTION}}
           az aks get-credentials --resource-group RG_AKS_TRIAL --name aksappmod --overwrite-existing
           kubelogin convert-kubeconfig -l azurecli
           kubectl get ns
