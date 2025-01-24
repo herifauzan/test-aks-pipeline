@@ -27,7 +27,9 @@ jobs:
 
       # Install Az CLI, Kubectl, Kubelogin
       - name: Run a one-line script
-        run: echo Hello, world!
+        run: |
+          sudo apt install azure-cli
+          az aks install-cli --client-version 1.26.6 --kubelogin-version latest --only-show-errors
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
